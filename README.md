@@ -1,0 +1,1 @@
+# mean-crud-metadata-generator
