@@ -1,0 +1,70 @@
+// The reason for doing so is to solve "relative assets (images, fonts) fail to find" issue
+
+@import "ui/ui";
+
+
+// label {
+//     font-weight: normal;
+// }
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+    // padding: 15px 5px;
+    vertical-align: middle;
+}
+
+/* Combobox */
+md-checkbox {
+    margin-bottom: 0px;
+}
+
+/* Combobox */
+md-select {
+    margin: 0px;
+
+    .md-select-value {
+        border: 0px;
+        margin-top: 3px;
+    }
+
+    &.form-control {
+        padding: 1px 4px 1px 12px;
+    }
+
+    &:not([disabled]) {
+        &:focus .md-select-value {
+            border: 0px;
+        }
+
+        &.ng-invalid.ng-dirty .md-select-value {
+            border: 0px;
+        }
+    }
+
+    &.md-default-theme[disabled] .md-select-value, md-select[disabled] .md-select-value {
+        cursor: not-allowed;
+        background: none;
+        color: #3D4051;
+    }
+
+    &.md-default-theme.ng-invalid.ng-dirty .md-select-value {
+        color: #3D4051 !important;
+    }
+
+    &.ng-invalid.ng-dirty .md-select-value {
+        color: #3D4051 !important;
+    }
+    
+}
+
+._md-select-menu-container.md-active {
+    z-index: 1051;
+}
+
+.form-validation.ng-invalid.ng-submitted .ng-invalid, .form-validation .ng-invalid.ng-touched {
+    border-color: rgb(213,0,0);
+}
+
+.form-invalid, div [ng-messages] {
+    color: rgb(213,0,0);
+    font-size: 12px;
+}

@@ -1,0 +1,29 @@
+<header class="top-header clearfix">
+    <div ui-preloader></div>
+
+    <!-- Logo -->
+    <div class="logo"
+         ng-class="{ 'bg-dark': ['11','31'].indexOf(main.skin) >= 0,
+                     'bg-white': main.skin === '21',
+                     'bg-primary': ['12','22','32'].indexOf(main.skin) >= 0,
+                     'bg-success': ['13','23','33'].indexOf(main.skin) >= 0,
+                     'bg-info': ['14','24','34'].indexOf(main.skin) >= 0,
+                     'bg-warning': ['15','25','35'].indexOf(main.skin) >= 0,
+                     'bg-danger': ['16','26','36'].indexOf(main.skin) >= 0 }">
+        <a href="#!/">
+            <span class="logo-icon material-icons">dashboard</span>
+            <span class="logo-text">MEAN CRUD</span>
+        </a>
+    </div>
+
+    <!-- needs to be put after logo to make it work -->
+    <div class="menu-button" toggle-off-canvas>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </div>
+
+    <div class="top-nav">
+        
+    </div>
+</header>

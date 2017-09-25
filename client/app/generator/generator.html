@@ -1,0 +1,214 @@
+<style>
+    /* .md-select-placeholder {
+        margin-top:-5px;
+    } */
+    /* md-input-container .md-errors-spacer {
+        min-height: 0;
+    } */
+    /* div[ng-messages] {
+        height: 19px;
+    } */
+
+</style>
+<section class="page-form page" data-ng-controller="generator as vm">
+    <div class="row ui-section">
+        <div class="col-md-12">
+            <form name="vm.form" class="form-validation" novalidate>
+                <section class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="section-header">
+                            <h4>Entity</h4>
+                        </div>
+                        <!-- <div class="col-lg-12"> -->
+                        <section class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="form-group col-md-3">
+                                    <label for="entityName">Entity</label>
+                                    <input type="text" class="form-control" required id="entityName" name="entityName" data-ng-model="vm.metadata.entityName">
+                                    <div ng-messages="vm.form.entityName.$error" multiple ng-if='vm.form.$submitted || vm.form.entityName.$touched'>
+                                        <div ng-message="required">Campo obrigatório</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="name">Plural name</label>
+                                    <input type="text" class="form-control" required id="pluralName" name="pluralName" data-ng-model="vm.metadata.model.pluralName">
+                                    <div ng-messages="vm.form.pluralName.$error" multiple ng-if='vm.form.$submitted || vm.form.pluralName.$touched'>
+                                        <div ng-message="required">Campo obrigatório</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="name">Model Name</label>
+                                    <input type="text" class="form-control" required id="name" name="name" data-ng-model="vm.metadata.model.name">
+                                    <div ng-messages="vm.form.name.$error" multiple ng-if='vm.form.$submitted || vm.form.name.$touched'>
+                                        <div ng-message="required">Campo obrigatório</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="modelFileName">Model filename</label>
+                                    <input type="text" class="form-control" required id="modelFileName" name="modelFileName" data-ng-model="vm.metadata.model.filename">
+                                    <div ng-messages="vm.form.modelFileName.$error" multiple ng-if='vm.form.$submitted || vm.form.modelFileName.$touched'>
+                                        <div ng-message="required">Campo obrigatório</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="controllerFileName">Controller filename</label>
+                                    <input type="text" class="form-control" required id="controllerFileName" name="controllerFileName" data-ng-model="vm.metadata.controller.filename">
+                                    <div ng-messages="vm.form.controllerFileName.$error" multiple ng-if='vm.form.$submitted || vm.form.controllerFileName.$touched'>
+                                        <div ng-message="required">Campo obrigatório</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="routerFileName">Router filename</label>
+                                    <input type="text" class="form-control" required id="routerFileName" name="routerFileName" data-ng-model="vm.metadata.router.filename">
+                                    <div ng-messages="vm.form.routerFileName.$error" multiple ng-if='vm.form.$submitted || vm.form.routerFileName.$touched'>
+                                        <div ng-message="required">Campo obrigatório</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+                        <!-- </div> -->
+                        <div class="section-header">
+                            <h4>Fields</h4>
+                        </div>
+                        <!-- <div class="col-lg-12"> -->
+                        <section class="panel panel-default">
+                            <div class="panel-body">
+                                <table class="table no-margin">
+                                    <!-- <thead>
+                                        <tr>
+                                            <th>Order</th>
+                                            <th>Name</th>
+                                            <th>Data Type</th>
+                                            <th>Length</th>
+                                            <th>PK</th>
+                                            <th>Unique</th>
+                                            <th>Required</th>
+                                            <th>List View</th>
+                                            <th>Details View</th>
+                                            <th>Search</th>
+                                            <th>Update</th>
+                                        </tr>
+                                    </thead> -->
+                                    <tbody>
+                                        <tr data-ng-repeat="field in vm.metadata.fields | orderBy : 'fieldOrder' track by $index">
+                                            <td>
+                                                <label for="fieldOrder{{$index}}">Order</label>
+                                                <input type="tel" class="form-control text-center" size="2" maxlength="4" id="fieldOrder{{$index}}" name="fieldOrder{{$index}}"
+                                                    data-ng-model="field.fieldOrder">
+                                            </td>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-12">
+                                                        <label for="fieldName{{$index}}">Name</label>
+                                                        <input type="text" class="form-control" required id="fieldName{{$index}}" name="fieldName{{$index}}" data-ng-model="field.fieldName">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-12">
+                                                        <label for="fieldLabel{{$index}}">Label</label>
+                                                        <input type="text" class="form-control" required id="fieldLabel{{$index}}" name="fieldLabel{{$index}}" data-ng-model="field.fieldLabel">
+                                                    </div>
+                                                </div>
+                                                <!-- <div ng-messages="vm.form['fieldName' + $index].$error">
+                                                        <div ng-message="required">Campo obrigatório</div>
+                                                    </div> -->
+
+                                                <!-- <md-input-container>
+                                                        <label for="fieldName{{$index}}">Campo</label>
+                                                        <input type="text" required id="fieldName{{$index}}" name="fieldName{{$index}}" data-ng-model="field.fieldName">
+                                                        <div ng-messages="vm.form['fieldName' + $index].$error">
+                                                            <div ng-message="required">Campo obrigatório</div>
+                                                        </div>
+                                                    </md-input-container> -->
+                                            </td>
+                                            <td>
+                                                <!-- <label for="dataType">Data type</label> -->
+                                                <div class="row">
+                                                    <div class="form-group col-sm-12">
+                                                        <label for="dataType{{$index}}">Data Type</label>
+                                                        <md-select class="form-control" required id="dataType{{$index}}" name="dataType{{$index}}" data-ng-model="field.dataType"
+                                                            data-ng-change="vm.selectControl(field);" md-no-asterisk="true">
+                                                            <md-option value="string">String</md-option>
+                                                            <md-option value="int">Integer</md-option>
+                                                            <md-option value="decimal">Decimal</md-option>
+                                                            <md-option value="bool">Boolean</md-option>
+                                                            <md-option value="datetime">Datetime</md-option>
+                                                            <md-option value="array">Array</md-option>
+                                                        </md-select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-7">
+                                                        <label for="controlType{{$index}}">Widget</label>
+                                                        <md-select class="form-control" required id="controlType{{$index}}" name="controlType{{$index}}" data-ng-model="field.controlType"
+                                                            md-no-asterisk="true">
+                                                            <md-option value="text">Input text</md-option>
+                                                            <md-option value="tel">Input tel</md-option>
+                                                            <md-option value="checkbox">Checkbox</md-option>
+                                                            <md-option value="calendar">Calendar</md-option>
+                                                            <md-option value="textarea">TextArea</md-option>
+                                                        </md-select>
+                                                    </div>
+                                                    <div class="form-group col-sm-5">
+                                                        <label for="maxlength{{$index}}">Maxlength</label>
+                                                        <input class="form-control" type="tel" id="maxlength" size="2" maxlength="3" id="maxlength{{$index}}" name="maxlength{{$index}}"
+                                                            data-ng-model="field.maxlength">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-4">
+                                                        <md-checkbox class="md-primary" data-ng-model="field.pk" data-ng-checked="vm.pkSelected(field)">PK</md-checkbox>
+                                                    </div>
+                                                    <div class="form-group col-sm-4">
+                                                        <md-checkbox class="md-primary" data-ng-model="field.listView" ng-checked="true">List view</md-checkbox>
+                                                    </div>
+                                                    <div class="form-group col-sm-4">
+                                                        <md-checkbox class="md-primary" data-ng-model="field.searchField">Search field</md-checkbox>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-4">
+                                                        <md-checkbox class="md-primary" data-ng-model="field.unique">Unique</md-checkbox>
+                                                    </div>
+                                                    <div class="form-group col-sm-4">
+                                                        <md-checkbox class="md-primary" data-ng-model="field.detailsView" ng-checked="true">Details view</md-checkbox>
+                                                    </div>
+                                                    <div class="form-group col-sm-4">
+                                                        <md-checkbox class="md-primary" data-ng-model="field.updateField" ng-checked="true">Update field</md-checkbox>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-4">
+                                                        <md-checkbox class="md-primary" data-ng-model="field.required" ng-checked="true">Required</md-checkbox>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <md-button class="md-raised md-primary" data-ng-click="vm.addField()">
+                                            <span class="fa fa-plus"></span> Adicionar campo
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- </div> -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <md-button type="submit" class="md-raised md-primary" data-ng-click="vm.generateMetadata()">
+                                    <span class="fa fa-magic"></span> Generate metadata
+                                </md-button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+</section>
