@@ -3,12 +3,16 @@
     'use strict';
 
     function Generator($scope) {
-        var vm = this;
+        var vm = this,
+
+            capitalize = function (string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            };
 
         vm.metadata = {
             model: {},
             controller: {},
-            router: {},
+            route: {},
             pages: {},
             fields: [{
                 fieldOrder: 1,
@@ -56,19 +60,21 @@
             if (!value) {
                 vm.metadata.model = {};
                 vm.metadata.controller = {};
-                vm.metadata.router = {};
+                vm.metadata.route = {};
+                vm.metadata.pages = {};
             } else {
                 // model
                 vm.metadata.model.pluralName = value + 's';
-                vm.metadata.model.name = value + 'Model';
+                vm.metadata.model.name = capitalize(value);
                 vm.metadata.model.schemaName = value + 'Schema';
-                vm.metadata.model.filename = value + 'Model.js';
+                vm.metadata.model.filename = value + '.js';
 
                 // controller
-                vm.metadata.controller.filename = value + 'Controller.js';
+                vm.metadata.controller.name = value + 'Controller';
+                vm.metadata.controller.filename = value+ 's.js';
 
                 // router
-                vm.metadata.router.filename = value + 'Router.js';
+                vm.metadata.route.filename = value+ 's.js';
 
                 // pages
                 vm.metadata.pages.listViewHtmlPageFilename = value + '-list.html';
