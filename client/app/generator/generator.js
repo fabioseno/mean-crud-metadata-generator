@@ -16,7 +16,7 @@
             pages: {},
             fields: [{
                 fieldOrder: 1,
-                dataType: 'string',
+                dataType: 'String',
                 controlType: 'text'
             }]
         };
@@ -24,26 +24,23 @@
         vm.addField = function () {
             vm.metadata.fields.push({
                 fieldOrder: vm.metadata.fields.length + 1,
-                dataType: 'string',
+                dataType: 'String',
                 controlType: 'text'
             });
         };
 
         vm.selectControl = function (field) {
             switch (field.dataType) {
-                case 'string':
+                case 'String':
                     field.controlType = 'text';
                     break;
-                case 'bool':
+                case 'Boolean':
                     field.controlType = 'checkbox';
                     break;
-                case 'int':
+                case 'Number':
                     field.controlType = 'tel';
                     break;
-                case 'decimal':
-                    field.controlType = 'text';
-                    break;
-                case 'datetime':
+                case 'Date':
                     field.controlType = 'calendar';
                     break;
             }
