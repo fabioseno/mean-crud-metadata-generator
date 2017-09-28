@@ -37,9 +37,6 @@
                 case 'Boolean':
                     field.controlType = 'checkbox';
                     break;
-                case 'Number':
-                    field.controlType = 'tel';
-                    break;
                 case 'Integer':
                     field.controlType = 'tel';
                     break;
