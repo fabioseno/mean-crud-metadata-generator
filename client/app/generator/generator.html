@@ -105,22 +105,6 @@
                         <section class="panel panel-default">
                             <div class="panel-body">
                                 <table class="table no-margin">
-                                    <!-- <thead>
-                                        <tr>
-                                            <th>Order</th>
-                                            <th>Name</th>
-                                            <th>Data Type</th>
-                                            <th>Length</th>
-                                            <th>PK</th>
-                                            <th>Unique</th>
-                                            <th>Required</th>
-                                            <th>List View</th>
-                                            <th>Details View</th>
-                                            <th>Search</th>
-                                            <th>Update</th>
-                                        </tr>
-                                    </thead> -->
-                                    <!-- <tbody> -->
                                     <tr data-ng-repeat="field in vm.metadata.fields | orderBy : 'fieldOrder' track by $index">
                                         <td>
                                             <label for="fieldOrder{{$index}}">Order</label>
@@ -140,20 +124,8 @@
                                                     <input type="text" class="form-control" required id="fieldLabel{{$index}}" name="fieldLabel{{$index}}" data-ng-model="field.fieldLabel">
                                                 </div>
                                             </div>
-                                            <!-- <div ng-messages="vm.form['fieldName' + $index].$error">
-                                                        <div ng-message="required">Campo obrigatório</div>
-                                                    </div> -->
-
-                                            <!-- <md-input-container>
-                                                        <label for="fieldName{{$index}}">Campo</label>
-                                                        <input type="text" required id="fieldName{{$index}}" name="fieldName{{$index}}" data-ng-model="field.fieldName">
-                                                        <div ng-messages="vm.form['fieldName' + $index].$error">
-                                                            <div ng-message="required">Campo obrigatório</div>
-                                                        </div>
-                                                    </md-input-container> -->
                                         </td>
                                         <td>
-                                            <!-- <label for="dataType">Data type</label> -->
                                             <div class="row">
                                                 <div class="form-group col-sm-12">
                                                     <label for="dataType{{$index}}">Data Type</label>
@@ -216,7 +188,6 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <!-- </tbody> -->
                                 </table>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -227,7 +198,6 @@
                                 </div>
                             </div>
                         </section>
-                        <!-- </div> -->
                         <div class="row">
                             <div class="col-md-6">
                                 <md-button type="submit" class="md-raised md-primary" data-ng-click="vm.generateMetadata()">
