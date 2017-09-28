@@ -40,6 +40,12 @@
                 case 'Number':
                     field.controlType = 'tel';
                     break;
+                case 'Integer':
+                    field.controlType = 'tel';
+                    break;
+                case 'Decimal':
+                    field.controlType = 'tel';
+                    break;
                 case 'Date':
                     field.controlType = 'calendar';
                     break;
