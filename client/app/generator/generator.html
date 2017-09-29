@@ -39,6 +39,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="pageName">Listing page name</label>
+                                                <input type="text" class="form-control" required id="listingPageName" name="listingPageName" data-ng-model="vm.metadata.pages.listingPageName">
+                                                <div ng-messages="vm.form.listingPageName.$error" multiple ng-if='vm.form.$submitted || vm.form.listingPageName.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="pageName">Details page name</label>
+                                                <input type="text" class="form-control" required id="detailsPageName" name="detailsPageName" data-ng-model="vm.metadata.pages.detailsPageName">
+                                                <div ng-messages="vm.form.detailsPageName.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsPageName.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </section>
                             </div>
