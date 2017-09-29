@@ -39,26 +39,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label for="pageName">Listing page title</label>
-                                                <input type="text" class="form-control" required id="listingPageTitle" name="listingPageTitle" data-ng-model="vm.metadata.pages.listingPageTitle">
-                                                <div ng-messages="vm.form.listingPageTitle.$error" multiple ng-if='vm.form.$submitted || vm.form.listingPageTitle.$touched'>
-                                                    <div ng-message="required">Campo obrigatório</div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="pageName">Details page title</label>
-                                                <input type="text" class="form-control" required id="detailsPageTitle" name="detailsPageTitle" data-ng-model="vm.metadata.pages.detailsPageTitle">
-                                                <div ng-messages="vm.form.detailsPageTitle.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsPageTitle.$touched'>
-                                                    <div ng-message="required">Campo obrigatório</div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </section>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <div class="section-header">
                                     <h4>Backend files</h4>
                                 </div>
@@ -108,56 +92,93 @@
                                     </div>
                                 </section>
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-8">
                                 <div class="section-header">
                                     <h4>Frontend files</h4>
                                 </div>
                                 <section class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="form-group col-md-4">
-                                                <label for="listViewHtmlPageFilename">HTML listing page file</label>
-                                                <input type="text" class="form-control" required id="listViewHtmlPageFilename" name="listViewHtmlPageFilename" data-ng-model="vm.metadata.pages.listViewHtmlPageFilename">
-                                                <div ng-messages="vm.form.listViewHtmlPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewHtmlPageFilename.$touched'>
-                                                    <div ng-message="required">Campo obrigatório</div>
+                                            <div class="col-md-12">
+                                                <div class="section-header">
+                                                    <h4>Listing view</h4>
                                                 </div>
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label for="listViewJSPageFilename">JS listing page file</label>
-                                                <input type="text" class="form-control" required id="listViewJSPageFilename" name="listViewJSPageFilename" data-ng-model="vm.metadata.pages.listViewJSPageFilename">
-                                                <div ng-messages="vm.form.listViewJSPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewJSPageFilename.$touched'>
-                                                    <div ng-message="required">Campo obrigatório</div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label for="listViewJSPageControllerName">JS listing page controller name</label>
-                                                <input type="text" class="form-control" required id="listViewJSPageControllerName" name="listViewJSPageControllerName" data-ng-model="vm.metadata.pages.listViewJSPageControllerName">
-                                                <div ng-messages="vm.form.listViewJSPageControllerName.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewJSPageControllerName.$touched'>
-                                                    <div ng-message="required">Campo obrigatório</div>
-                                                </div>
+                                                <section class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="form-group col-md-3">
+                                                                <label for="pageName">Page title</label>
+                                                                <input type="text" class="form-control" required id="listingPageTitle" name="listingPageTitle" data-ng-model="vm.metadata.pages.listingPageTitle">
+                                                                <div ng-messages="vm.form.listingPageTitle.$error" multiple ng-if='vm.form.$submitted || vm.form.listingPageTitle.$touched'>
+                                                                    <div ng-message="required">Campo obrigatório</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-md-3">
+                                                                <label for="listViewHtmlPageFilename">HTML page file</label>
+                                                                <input type="text" class="form-control" required id="listViewHtmlPageFilename" name="listViewHtmlPageFilename" data-ng-model="vm.metadata.pages.listViewHtmlPageFilename">
+                                                                <div ng-messages="vm.form.listViewHtmlPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewHtmlPageFilename.$touched'>
+                                                                    <div ng-message="required">Campo obrigatório</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-md-3">
+                                                                <label for="listViewJSPageFilename">JS page file</label>
+                                                                <input type="text" class="form-control" required id="listViewJSPageFilename" name="listViewJSPageFilename" data-ng-model="vm.metadata.pages.listViewJSPageFilename">
+                                                                <div ng-messages="vm.form.listViewJSPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewJSPageFilename.$touched'>
+                                                                    <div ng-message="required">Campo obrigatório</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-md-3">
+                                                                <label for="listViewJSPageControllerName">Controller name</label>
+                                                                <input type="text" class="form-control" required id="listViewJSPageControllerName" name="listViewJSPageControllerName" data-ng-model="vm.metadata.pages.listViewJSPageControllerName">
+                                                                <div ng-messages="vm.form.listViewJSPageControllerName.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewJSPageControllerName.$touched'>
+                                                                    <div ng-message="required">Campo obrigatório</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="form-group col-md-4">
-                                                <label for="detailsViewHtmlPageFilename">HTML details page file</label>
-                                                <input type="text" class="form-control" required id="detailsViewHtmlPageFilename" name="detailsViewHtmlPageFilename" data-ng-model="vm.metadata.pages.detailsViewHtmlPageFilename">
-                                                <div ng-messages="vm.form.detailsViewHtmlPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewHtmlPageFilename.$touched'>
-                                                    <div ng-message="required">Campo obrigatório</div>
+                                            <div class="col-md-12">
+                                                <div class="section-header">
+                                                    <h4>Details view</h4>
                                                 </div>
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label for="detailsViewJSPageFilename">JS details page file</label>
-                                                <input type="text" class="form-control" required id="detailsViewJSPageFilename" name="detailsViewJSPageFilename" data-ng-model="vm.metadata.pages.detailsViewJSPageFilename">
-                                                <div ng-messages="vm.form.detailsViewJSPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewJSPageFilename.$touched'>
-                                                    <div ng-message="required">Campo obrigatório</div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label for="detailsViewJSPageControllerName">JS details page controller name</label>
-                                                <input type="text" class="form-control" required id="detailsViewJSPageControllerName" name="detailsViewJSPageControllerName" data-ng-model="vm.metadata.pages.detailsViewJSPageControllerName">
-                                                <div ng-messages="vm.form.detailsViewJSPageControllerName.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewJSPageControllerName.$touched'>
-                                                    <div ng-message="required">Campo obrigatório</div>
-                                                </div>
+                                                <section class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="form-group col-md-3">
+                                                                <label for="pageName">Page title</label>
+                                                                <input type="text" class="form-control" required id="detailsPageTitle" name="detailsPageTitle" data-ng-model="vm.metadata.pages.detailsPageTitle">
+                                                                <div ng-messages="vm.form.detailsPageTitle.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsPageTitle.$touched'>
+                                                                    <div ng-message="required">Campo obrigatório</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-md-3">
+                                                                <label for="detailsViewHtmlPageFilename">HTML page file</label>
+                                                                <input type="text" class="form-control" required id="detailsViewHtmlPageFilename" name="detailsViewHtmlPageFilename" data-ng-model="vm.metadata.pages.detailsViewHtmlPageFilename">
+                                                                <div ng-messages="vm.form.detailsViewHtmlPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewHtmlPageFilename.$touched'>
+                                                                    <div ng-message="required">Campo obrigatório</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-md-3">
+                                                                <label for="detailsViewJSPageFilename">JS page file</label>
+                                                                <input type="text" class="form-control" required id="detailsViewJSPageFilename" name="detailsViewJSPageFilename" data-ng-model="vm.metadata.pages.detailsViewJSPageFilename">
+                                                                <div ng-messages="vm.form.detailsViewJSPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewJSPageFilename.$touched'>
+                                                                    <div ng-message="required">Campo obrigatório</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-md-3">
+                                                                <label for="detailsViewJSPageControllerName">Controller name</label>
+                                                                <input type="text" class="form-control" required id="detailsViewJSPageControllerName" name="detailsViewJSPageControllerName"
+                                                                    data-ng-model="vm.metadata.pages.detailsViewJSPageControllerName">
+                                                                <div ng-messages="vm.form.detailsViewJSPageControllerName.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewJSPageControllerName.$touched'>
+                                                                    <div ng-message="required">Campo obrigatório</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
                                             </div>
                                         </div>
                                     </div>
