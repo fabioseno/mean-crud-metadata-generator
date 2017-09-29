@@ -77,13 +77,15 @@
                 vm.metadata.route.filename = value+ 's.js';
 
                 // pages
+                vm.metadata.pages.listViewPageTitle = capitalize(value) + 's';
                 vm.metadata.pages.listViewHtmlPageFilename = value + '-list.html';
-                vm.metadata.pages.listViewJSPageFilename =  + '-list.js';
-                vm.metadata.pages.listViewJSPageControllerName =  = value + 'List';
+                vm.metadata.pages.listViewJSPageFilename = value + '-list.js';
+                vm.metadata.pages.listViewJSPageControllerName = value + 'List';
 
+                vm.metadata.pages.detailsViewPageTitle = capitalize(value);
                 vm.metadata.pages.detailsViewHtmlPageFilename = value + '-details.html';
-                vm.metadata.pages.detailsViewJSPageFilename =  = value + '-details.js';
-                vm.metadata.pages.detailsViewJSPageControllerName =  = value + 'Details';
+                vm.metadata.pages.detailsViewJSPageFilename = value + '-details.js';
+                vm.metadata.pages.detailsViewJSPageControllerName = value + 'Details';
             }
         })
 
