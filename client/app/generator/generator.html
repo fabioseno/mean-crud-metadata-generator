@@ -50,7 +50,7 @@
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label for="modelFileName">Model file</label>
+                                                <label for="modelFileName">Model filename</label>
                                                 <input type="text" class="form-control" required id="modelFileName" name="modelFileName" data-ng-model="vm.metadata.model.filename">
                                                 <div ng-messages="vm.form.modelFileName.$error" multiple ng-if='vm.form.$submitted || vm.form.modelFileName.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
@@ -66,7 +66,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label for="controllerFileName">Controller file</label>
+                                                <label for="controllerFileName">Controller filename</label>
                                                 <input type="text" class="form-control" required id="controllerFileName" name="controllerFileName" data-ng-model="vm.metadata.controller.filename">
                                                 <div ng-messages="vm.form.controllerFileName.$error" multiple ng-if='vm.form.$submitted || vm.form.controllerFileName.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
@@ -82,7 +82,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label for="routerFileName">Router file</label>
+                                                <label for="routerFileName">Router filename</label>
                                                 <input type="text" class="form-control" required id="routerFileName" name="routerFileName" data-ng-model="vm.metadata.route.filename">
                                                 <div ng-messages="vm.form.routerFileName.$error" multiple ng-if='vm.form.$submitted || vm.form.routerFileName.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
@@ -114,14 +114,14 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group col-md-3">
-                                                                <label for="listViewHtmlPageFilename">HTML page file</label>
+                                                                <label for="listViewHtmlPageFilename">HTML view filename</label>
                                                                 <input type="text" class="form-control" required id="listViewHtmlPageFilename" name="listViewHtmlPageFilename" data-ng-model="vm.metadata.pages.listViewHtmlPageFilename">
                                                                 <div ng-messages="vm.form.listViewHtmlPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewHtmlPageFilename.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group col-md-3">
-                                                                <label for="listViewJSPageFilename">JS page file</label>
+                                                                <label for="listViewJSPageFilename">JS view filename</label>
                                                                 <input type="text" class="form-control" required id="listViewJSPageFilename" name="listViewJSPageFilename" data-ng-model="vm.metadata.pages.listViewJSPageFilename">
                                                                 <div ng-messages="vm.form.listViewJSPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewJSPageFilename.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
@@ -155,14 +155,14 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group col-md-3">
-                                                                <label for="detailsViewHtmlPageFilename">HTML page file</label>
+                                                                <label for="detailsViewHtmlPageFilename">HTML view filename</label>
                                                                 <input type="text" class="form-control" required id="detailsViewHtmlPageFilename" name="detailsViewHtmlPageFilename" data-ng-model="vm.metadata.pages.detailsViewHtmlPageFilename">
                                                                 <div ng-messages="vm.form.detailsViewHtmlPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewHtmlPageFilename.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group col-md-3">
-                                                                <label for="detailsViewJSPageFilename">JS page file</label>
+                                                                <label for="detailsViewJSPageFilename">JS view filename</label>
                                                                 <input type="text" class="form-control" required id="detailsViewJSPageFilename" name="detailsViewJSPageFilename" data-ng-model="vm.metadata.pages.detailsViewJSPageFilename">
                                                                 <div ng-messages="vm.form.detailsViewJSPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewJSPageFilename.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
