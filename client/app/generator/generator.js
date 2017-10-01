@@ -93,7 +93,11 @@
         })
 
         $scope.$watch('vm.metadata.entityTitle', function (value) {
-            vm.metadata.entityPluralTitle = value + 's';
+            if (value) {
+                vm.metadata.entityPluralTitle = value + 's';
+            } else {
+                vm.metadata.entityPluralTitle = '';
+            }
         });
 
         vm.generateMetadata = function () {
