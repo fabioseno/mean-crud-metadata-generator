@@ -92,6 +92,10 @@
             }
         })
 
+        $scope.$watch('vm.metadata.entityTitle', function (value) {
+            vm.metadata.entityPluralTitle = value + 's';
+        });
+
         vm.generateMetadata = function () {
             if (vm.form.$valid) {
                 var file = new Blob([JSON.stringify(vm.metadata, null, '\t')], {
