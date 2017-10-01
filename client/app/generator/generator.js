@@ -63,6 +63,9 @@
                 vm.metadata.route = {};
                 vm.metadata.pages = {};
             } else {
+                vm.metadata.entityTitle = value;
+                vm.metadata.entityPluralTitle = value + 's';
+
                 // model
                 vm.metadata.model.pluralName = value + 's';
                 vm.metadata.model.name = capitalize(value);

@@ -32,9 +32,25 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="name">Plural name</label>
+                                                <label for="pluralName">Plural name</label>
                                                 <input type="text" class="form-control" required id="pluralName" name="pluralName" data-ng-model="vm.metadata.model.pluralName">
                                                 <div ng-messages="vm.form.pluralName.$error" multiple ng-if='vm.form.$submitted || vm.form.pluralName.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="entityTitle">Entity title</label>
+                                                <input type="text" class="form-control" required id="entityTitle" name="entityTitle" data-ng-model="vm.metadata.entityTitle">
+                                                <div ng-messages="vm.form.entityTitle.$error" multiple ng-if='vm.form.$submitted || vm.form.entityTitle.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="entityPluralTitle">Entity plural title</label>
+                                                <input type="text" class="form-control" required id="entityPluralTitle" name="entityPluralTitle" data-ng-model="vm.metadata.entityPluralTitle">
+                                                <div ng-messages="vm.form.entityPluralTitle.$error" multiple ng-if='vm.form.$submitted || vm.form.entityPluralTitle.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
                                                 </div>
                                             </div>
