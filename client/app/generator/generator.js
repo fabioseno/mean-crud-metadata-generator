@@ -58,6 +58,8 @@
 
         $scope.$watch('vm.metadata.entityName', function (value) {
             if (!value) {
+                vm.metadata.entityTitle = '';
+                vm.metadata.entityPluralName = '';
                 vm.metadata.model = {};
                 vm.metadata.controller = {};
                 vm.metadata.route = {};
