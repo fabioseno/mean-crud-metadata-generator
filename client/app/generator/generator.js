@@ -64,10 +64,10 @@
                 vm.metadata.pages = {};
             } else {
                 vm.metadata.entityTitle = value;
-                vm.metadata.entityPluralTitle = value + 's';
+                vm.metadata.entityPluralName = value + 's';
 
                 // model
-                vm.metadata.model.pluralName = value + 's';
+                vm.metadata.model.pluralName = capitalize(value) + 's';
                 vm.metadata.model.name = capitalize(value);
                 vm.metadata.model.schemaName = value + 'Schema';
                 vm.metadata.model.filename = value + '.js';
@@ -81,13 +81,13 @@
 
                 // pages
                 vm.metadata.pages.listViewPageTitle = capitalize(value) + 's';
-                vm.metadata.pages.listViewHtmlPageFilename = value + '-list.html';
-                vm.metadata.pages.listViewJSPageFilename = value + '-list.js';
+                vm.metadata.pages.listViewHtmlPageFilename = value + 's.html';
+                vm.metadata.pages.listViewJSPageFilename = value + 's.js';
                 vm.metadata.pages.listViewJSPageControllerName = value + 'List';
 
                 vm.metadata.pages.detailsViewPageTitle = capitalize(value);
-                vm.metadata.pages.detailsViewHtmlPageFilename = value + '-details.html';
-                vm.metadata.pages.detailsViewJSPageFilename = value + '-details.js';
+                vm.metadata.pages.detailsViewHtmlPageFilename = value + .html';
+                vm.metadata.pages.detailsViewJSPageFilename = value + 's.js';
                 vm.metadata.pages.detailsViewJSPageControllerName = value + 'Details';
             }
         })
