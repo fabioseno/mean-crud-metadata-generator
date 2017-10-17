@@ -32,8 +32,8 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="pluralName">Plural name</label>
-                                                <input type="text" class="form-control" required id="pluralName" name="pluralName" data-ng-model="vm.metadata.model.pluralName">
+                                                <label for="pluralName">Entity plural name</label>
+                                                <input type="text" class="form-control" required id="pluralName" name="pluralName" data-ng-model="vm.metadata.entityPluralName">
                                                 <div ng-messages="vm.form.pluralName.$error" multiple ng-if='vm.form.$submitted || vm.form.pluralName.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
                                                 </div>
@@ -55,6 +55,15 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="modelPluralName">Model plural name</label>
+                                                <input type="text" class="form-control" required id="modelPluralName" name="modelPluralName" data-ng-model="vm.metadata.model.pluralName">
+                                                <div ng-messages="vm.form.modelPluralName.$error" multiple ng-if='vm.form.$submitted || vm.form.modelPluralName.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                        </div> -->
                                     </div>
                                 </section>
                             </div>
