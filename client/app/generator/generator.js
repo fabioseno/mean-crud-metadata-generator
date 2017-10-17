@@ -85,12 +85,12 @@
                 vm.metadata.pages.listViewPageTitle = capitalize(value) + 's';
                 vm.metadata.pages.listViewHtmlPageFilename = value + 's.html';
                 vm.metadata.pages.listViewJSPageFilename = value + 's.js';
-                vm.metadata.pages.listViewJSPageControllerName = value + 'List';
+                vm.metadata.pages.listViewJSPageControllerName = value + 's';
 
                 vm.metadata.pages.detailsViewPageTitle = capitalize(value);
                 vm.metadata.pages.detailsViewHtmlPageFilename = value + '.html';
                 vm.metadata.pages.detailsViewJSPageFilename = value + 's.js';
-                vm.metadata.pages.detailsViewJSPageControllerName = value + 'Details';
+                vm.metadata.pages.detailsViewJSPageControllerName = value;
             }
         })
 
