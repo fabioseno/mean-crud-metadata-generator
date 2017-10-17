@@ -88,7 +88,7 @@
                 vm.metadata.pages.listViewJSPageControllerName = value + 'List';
 
                 vm.metadata.pages.detailsViewPageTitle = capitalize(value);
-                vm.metadata.pages.detailsViewHtmlPageFilename = value + .html';
+                vm.metadata.pages.detailsViewHtmlPageFilename = value + '.html';
                 vm.metadata.pages.detailsViewJSPageFilename = value + 's.js';
                 vm.metadata.pages.detailsViewJSPageControllerName = value + 'Details';
             }

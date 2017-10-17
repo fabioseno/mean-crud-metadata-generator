@@ -269,6 +269,27 @@
                                         </td>
                                         <td>
                                             <div class="row">
+                                                <div class="form-group col-sm-12">
+                                                    <label for="listOrder{{$index}}">Grid Order</label>
+                                                    <input class="form-control" type="tel" id="maxlength" size="2" maxlength="2" id="listOrder{{$index}}" name="listOrder{{$index}}"
+                                                        data-ng-model="field.listOrder">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-sm-6">
+                                                    <label for="formRow{{$index}}">Form Row</label>
+                                                    <input class="form-control" type="tel" id="formRow" size="2" maxlength="2" id="formRow{{$index}}" name="formRow{{$index}}"
+                                                        data-ng-model="field.formRow">
+                                                </div>
+                                                <div class="form-group col-sm-6">
+                                                    <label for="formColSize{{$index}}">Col Size</label>
+                                                    <input class="form-control" type="tel" id="formColSize" size="2" maxlength="2" id="formColSize{{$index}}" name="formColSize{{$index}}"
+                                                        data-ng-model="field.formColSize">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="row">
                                                 <div class="form-group col-sm-4">
                                                     <md-checkbox class="md-primary" data-ng-model="field.pk" data-ng-checked="vm.pkSelected(field)">PK</md-checkbox>
                                                 </div>
