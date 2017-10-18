@@ -11,6 +11,7 @@
 
         vm.colSizes = [];
         vm.listOrders = [];
+        vm.formRows = [];
 
         vm.metadata = {
             model: {},
@@ -30,6 +31,10 @@
 
         for (var i = 0; i < 10; i++) {
             vm.listOrders.push(i + 1);
+        }
+
+        for (var i = 0; i < 10; i++) {
+            vm.formRows.push(i + 1);
         }
 
         vm.addField = function () {
