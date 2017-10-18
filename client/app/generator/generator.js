@@ -9,6 +9,8 @@
                 return string.charAt(0).toUpperCase() + string.slice(1);
             };
 
+        vm.colSizes = [];
+
         vm.metadata = {
             model: {},
             controller: {},
@@ -20,6 +22,10 @@
                 controlType: 'text'
             }]
         };
+
+        for (var i = 0; i < 12; i++) {
+            vm.colSizes.push(i + 1);
+        }
 
         vm.addField = function () {
             vm.metadata.fields.push({

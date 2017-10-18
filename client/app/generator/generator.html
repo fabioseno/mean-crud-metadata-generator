@@ -292,8 +292,11 @@
                                                 </div>
                                                 <div class="form-group col-sm-6">
                                                     <label for="formColSize{{$index}}">Col Size</label>
-                                                    <input class="form-control" type="tel" id="formColSize" size="2" maxlength="2" id="formColSize{{$index}}" name="formColSize{{$index}}"
-                                                        data-ng-model="field.formColSize">
+                                                    <md-select class="form-control" id="formColSize{{$index}}" name="formColSize{{$index}}" data-ng-model="field.formColSize"
+                                                        md-no-asterisk="true">
+                                                        <md-option value="">Select:</md-option>
+                                                        <md-option data-ng-value="colSize" data-ng-repeat="colSize in vm.colSizes">{{ colSize }}</md-option>
+                                                    </md-select>
                                                 </div>
                                             </div>
                                         </td>
