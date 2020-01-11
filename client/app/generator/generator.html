@@ -8,7 +8,6 @@
     /* div[ng-messages] {
         height: 19px;
     } */
-
 </style>
 <section class="page-form page" data-ng-controller="generator as vm">
     <div class="row ui-section">
@@ -19,42 +18,110 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="section-header">
-                                    <h4>Entity</h4>
+                                    <h4>Opções</h4>
+                                </div>
+                                <section class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="form-group col-md-3">
+                                                <label for="datasource">Banco de dados</label>
+                                                <md-select class="form-control" required id="datasource"
+                                                    name="datasource" data-ng-model="vm.metadata.server.datasource"
+                                                    md-no-asterisk="true">
+                                                    <md-option value="mongodb">Mongo DB</md-option>
+                                                    <md-option value="mysql">MySQL</md-option>
+                                                </md-select>
+                                                <div ng-messages="vm.form.datasource.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.datasource.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="namingConvention">Notação dos arquivos</label>
+                                                <md-select class="form-control" required id="namingConvention"
+                                                    name="namingConvention" data-ng-model="vm.metadata.server.namingConvention"
+                                                    md-no-asterisk="true">
+                                                    <md-option value="underscore">Underscore</md-option>
+                                                    <md-option value="camel">Camel Case</md-option>
+                                                    <md-option value="pascal">Pascal Case</md-option>
+                                                </md-select>
+                                                <div ng-messages="vm.form.namingConvention.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.namingConvention.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="section-header">
+                                    <h4>Entidade</h4>
                                 </div>
                                 <section class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label for="entityName">Entity</label>
-                                                <input type="text" class="form-control" required id="entityName" name="entityName" data-ng-model="vm.metadata.entityName">
-                                                <div ng-messages="vm.form.entityName.$error" multiple ng-if='vm.form.$submitted || vm.form.entityName.$touched'>
+                                                <label for="entityName">Nome da entidade (codigo)</label>
+                                                <input type="text" class="form-control" required id="entityName"
+                                                    name="entityName" data-ng-model="vm.metadata.entityName">
+                                                <div ng-messages="vm.form.entityName.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.entityName.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="pluralName">Entity plural name</label>
-                                                <input type="text" class="form-control" required id="pluralName" name="pluralName" data-ng-model="vm.metadata.entityPluralName">
-                                                <div ng-messages="vm.form.pluralName.$error" multiple ng-if='vm.form.$submitted || vm.form.pluralName.$touched'>
+                                                <label for="pluralName">Nome da entidade no plural</label>
+                                                <input type="text" class="form-control" required id="pluralName"
+                                                    name="pluralName" data-ng-model="vm.metadata.entityPluralName">
+                                                <div ng-messages="vm.form.pluralName.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.pluralName.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label for="entityTitle">Entity title</label>
-                                                <input type="text" class="form-control" required id="entityTitle" name="entityTitle" data-ng-model="vm.metadata.entityTitle">
-                                                <div ng-messages="vm.form.entityTitle.$error" multiple ng-if='vm.form.$submitted || vm.form.entityTitle.$touched'>
+                                                <label for="entityTitle">Título da entidade (título da página)</label>
+                                                <input type="text" class="form-control" required id="entityTitle"
+                                                    name="entityTitle" data-ng-model="vm.metadata.entityTitle">
+                                                <div ng-messages="vm.form.entityTitle.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.entityTitle.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="entityPluralTitle">Entity plural title</label>
-                                                <input type="text" class="form-control" required id="entityPluralTitle" name="entityPluralTitle" data-ng-model="vm.metadata.entityPluralTitle">
-                                                <div ng-messages="vm.form.entityPluralTitle.$error" multiple ng-if='vm.form.$submitted || vm.form.entityPluralTitle.$touched'>
+                                                <label for="entityPluralTitle">Título da entidade no plural (título da página)</label>
+                                                <input type="text" class="form-control" required id="entityPluralTitle"
+                                                    name="entityPluralTitle"
+                                                    data-ng-model="vm.metadata.entityPluralTitle">
+                                                <div ng-messages="vm.form.entityPluralTitle.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.entityPluralTitle.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="entityLabel">Entity label (Label do campo)</label>
+                                                <input type="text" class="form-control" required id="entityLabel"
+                                                    name="entityLabel" data-ng-model="vm.metadata.entityLabel">
+                                                <div ng-messages="vm.form.entityLabel.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.entityLabel.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="entityPluralLabel">Entity plural label</label>
+                                                <input type="text" class="form-control" required id="entityPluralLabel"
+                                                    name="entityPluralLabel"
+                                                    data-ng-model="vm.metadata.entityPluralLabel">
+                                                <div ng-messages="vm.form.entityPluralLabel.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.entityPluralLabel.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                        </div> -->
                                         <!-- <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label for="modelPluralName">Model plural name</label>
@@ -69,22 +136,48 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="section-header">
-                                    <h4>Backend files</h4>
+                                    <h4>Backend</h4>
                                 </div>
                                 <section class="panel panel-default">
                                     <div class="panel-body">
-                                        <div class="row">
+                                        <div class="row" data-ng-show="vm.showMongoDBFields()">
                                             <div class="form-group col-md-6">
-                                                <label for="modelFileName">Model filename</label>
-                                                <input type="text" class="form-control" required id="modelFileName" name="modelFileName" data-ng-model="vm.metadata.model.filename">
-                                                <div ng-messages="vm.form.modelFileName.$error" multiple ng-if='vm.form.$submitted || vm.form.modelFileName.$touched'>
+                                                <label for="modelFileName">Arquivo de model (Mongo)</label>
+                                                <input type="text" class="form-control" required id="modelFileName"
+                                                    name="modelFileName"
+                                                    data-ng-model="vm.metadata.server.model.filename">
+                                                <div ng-messages="vm.form.modelFileName.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.modelFileName.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="name">Model name</label>
-                                                <input type="text" class="form-control" required id="name" name="name" data-ng-model="vm.metadata.model.name">
-                                                <div ng-messages="vm.form.name.$error" multiple ng-if='vm.form.$submitted || vm.form.name.$touched'>
+                                                <label for="name">Nome da model (mongo)</label>
+                                                <input type="text" class="form-control" required id="name" name="name"
+                                                    data-ng-model="vm.metadata.server.model.name">
+                                                <div ng-messages="vm.form.name.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.name.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="domainFileName">Domain filename</label>
+                                                <input type="text" class="form-control" required id="domainFileName"
+                                                    name="domainFileName"
+                                                    data-ng-model="vm.metadata.server.domain.filename">
+                                                <div ng-messages="vm.form.domainFileName.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.domainFileName.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="domainName">Domain name</label>
+                                                <input type="text" class="form-control" required id="domainName"
+                                                    name="domainName" data-ng-model="vm.metadata.server.domain.name">
+                                                <div ng-messages="vm.form.domainName.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.domainName.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
                                                 </div>
                                             </div>
@@ -92,15 +185,43 @@
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label for="controllerFileName">Controller filename</label>
-                                                <input type="text" class="form-control" required id="controllerFileName" name="controllerFileName" data-ng-model="vm.metadata.controller.filename">
-                                                <div ng-messages="vm.form.controllerFileName.$error" multiple ng-if='vm.form.$submitted || vm.form.controllerFileName.$touched'>
+                                                <input type="text" class="form-control" required id="controllerFileName"
+                                                    name="controllerFileName"
+                                                    data-ng-model="vm.metadata.server.controller.filename">
+                                                <div ng-messages="vm.form.controllerFileName.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.controllerFileName.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="controllerName">Controller name</label>
-                                                <input type="text" class="form-control" required id="controllerName" name="controllerName" data-ng-model="vm.metadata.controller.name">
-                                                <div ng-messages="vm.form.controllerName.$error" multiple ng-if='vm.form.$submitted || vm.form.controllerName.$touched'>
+                                                <input type="text" class="form-control" required id="controllerName"
+                                                    name="controllerName"
+                                                    data-ng-model="vm.metadata.server.controller.name">
+                                                <div ng-messages="vm.form.controllerName.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.controllerName.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="middlewareFileName">Middleware filename</label>
+                                                <input type="text" class="form-control" required id="middlewareFileName"
+                                                    name="middlewareFileName"
+                                                    data-ng-model="vm.metadata.server.middleware.filename">
+                                                <div ng-messages="vm.form.middlewareFileName.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.middlewareFileName.$touched'>
+                                                    <div ng-message="required">Campo obrigatório</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="controllerName">Middleware name</label>
+                                                <input type="text" class="form-control" required id="middlewareName"
+                                                    name="middlewareName"
+                                                    data-ng-model="vm.metadata.server.middleware.name">
+                                                <div ng-messages="vm.form.middlewareName.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.middlewareName.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
                                                 </div>
                                             </div>
@@ -108,8 +229,11 @@
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label for="routerFileName">Router filename</label>
-                                                <input type="text" class="form-control" required id="routerFileName" name="routerFileName" data-ng-model="vm.metadata.route.filename">
-                                                <div ng-messages="vm.form.routerFileName.$error" multiple ng-if='vm.form.$submitted || vm.form.routerFileName.$touched'>
+                                                <input type="text" class="form-control" required id="routerFileName"
+                                                    name="routerFileName"
+                                                    data-ng-model="vm.metadata.server.route.filename">
+                                                <div ng-messages="vm.form.routerFileName.$error" multiple
+                                                    ng-if='vm.form.$submitted || vm.form.routerFileName.$touched'>
                                                     <div ng-message="required">Campo obrigatório</div>
                                                 </div>
                                             </div>
@@ -119,43 +243,65 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="section-header">
-                                    <h4>Frontend files</h4>
+                                    <h4>Frontend</h4>
                                 </div>
                                 <section class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="section-header">
-                                                    <h4>Listing view</h4>
+                                                    <h4>Tela de listagem</h4>
                                                 </div>
                                                 <section class="panel panel-default">
                                                     <div class="panel-body">
                                                         <div class="row">
                                                             <div class="form-group col-md-3">
-                                                                <label for="listViewPageTitle">Title</label>
-                                                                <input type="text" class="form-control" required id="listViewPageTitle" name="listViewPageTitle" data-ng-model="vm.metadata.pages.listViewPageTitle">
-                                                                <div ng-messages="vm.form.listViewPageTitle.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewPageTitle.$touched'>
+                                                                <label for="listViewPageTitle">Título da página</label>
+                                                                <input type="text" class="form-control" required
+                                                                    id="listViewPageTitle" name="listViewPageTitle"
+                                                                    data-ng-model="vm.metadata.web.pages.listViewPageTitle">
+                                                                <div ng-messages="vm.form.listViewPageTitle.$error"
+                                                                    multiple
+                                                                    ng-if='vm.form.$submitted || vm.form.listViewPageTitle.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group col-md-3">
-                                                                <label for="listViewHtmlPageFilename">HTML view filename</label>
-                                                                <input type="text" class="form-control" required id="listViewHtmlPageFilename" name="listViewHtmlPageFilename" data-ng-model="vm.metadata.pages.listViewHtmlPageFilename">
-                                                                <div ng-messages="vm.form.listViewHtmlPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewHtmlPageFilename.$touched'>
+                                                                <label for="listViewHtmlPageFilename">HTML view
+                                                                    filename</label>
+                                                                <input type="text" class="form-control" required
+                                                                    id="listViewHtmlPageFilename"
+                                                                    name="listViewHtmlPageFilename"
+                                                                    data-ng-model="vm.metadata.web.pages.listViewHtmlPageFilename">
+                                                                <div ng-messages="vm.form.listViewHtmlPageFilename.$error"
+                                                                    multiple
+                                                                    ng-if='vm.form.$submitted || vm.form.listViewHtmlPageFilename.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group col-md-3">
-                                                                <label for="listViewJSPageFilename">JS view filename</label>
-                                                                <input type="text" class="form-control" required id="listViewJSPageFilename" name="listViewJSPageFilename" data-ng-model="vm.metadata.pages.listViewJSPageFilename">
-                                                                <div ng-messages="vm.form.listViewJSPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewJSPageFilename.$touched'>
+                                                                <label for="listViewJSPageFilename">JS view
+                                                                    filename</label>
+                                                                <input type="text" class="form-control" required
+                                                                    id="listViewJSPageFilename"
+                                                                    name="listViewJSPageFilename"
+                                                                    data-ng-model="vm.metadata.web.pages.listViewJSPageFilename">
+                                                                <div ng-messages="vm.form.listViewJSPageFilename.$error"
+                                                                    multiple
+                                                                    ng-if='vm.form.$submitted || vm.form.listViewJSPageFilename.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group col-md-3">
-                                                                <label for="listViewJSPageControllerName">Controller name</label>
-                                                                <input type="text" class="form-control" required id="listViewJSPageControllerName" name="listViewJSPageControllerName" data-ng-model="vm.metadata.pages.listViewJSPageControllerName">
-                                                                <div ng-messages="vm.form.listViewJSPageControllerName.$error" multiple ng-if='vm.form.$submitted || vm.form.listViewJSPageControllerName.$touched'>
+                                                                <label for="listViewJSPageControllerName">Controller
+                                                                    name</label>
+                                                                <input type="text" class="form-control" required
+                                                                    id="listViewJSPageControllerName"
+                                                                    name="listViewJSPageControllerName"
+                                                                    data-ng-model="vm.metadata.web.pages.listViewJSPageControllerName">
+                                                                <div ng-messages="vm.form.listViewJSPageControllerName.$error"
+                                                                    multiple
+                                                                    ng-if='vm.form.$submitted || vm.form.listViewJSPageControllerName.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
                                                                 </div>
                                                             </div>
@@ -167,37 +313,58 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="section-header">
-                                                    <h4>Details view</h4>
+                                                    <h4>Tela de formulário de detalhe</h4>
                                                 </div>
                                                 <section class="panel panel-default">
                                                     <div class="panel-body">
                                                         <div class="row">
                                                             <div class="form-group col-md-3">
-                                                                <label for="detailsViewPageTitle">Title</label>
-                                                                <input type="text" class="form-control" required id="detailsViewPageTitle" name="detailsPageTitle" data-ng-model="vm.metadata.pages.detailsViewPageTitle">
-                                                                <div ng-messages="vm.form.detailsViewPageTitle.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewPageTitle.$touched'>
+                                                                <label for="detailsViewPageTitle">Título da página</label>
+                                                                <input type="text" class="form-control" required
+                                                                    id="detailsViewPageTitle" name="detailsPageTitle"
+                                                                    data-ng-model="vm.metadata.web.pages.detailsViewPageTitle">
+                                                                <div ng-messages="vm.form.detailsViewPageTitle.$error"
+                                                                    multiple
+                                                                    ng-if='vm.form.$submitted || vm.form.detailsViewPageTitle.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group col-md-3">
-                                                                <label for="detailsViewHtmlPageFilename">HTML view filename</label>
-                                                                <input type="text" class="form-control" required id="detailsViewHtmlPageFilename" name="detailsViewHtmlPageFilename" data-ng-model="vm.metadata.pages.detailsViewHtmlPageFilename">
-                                                                <div ng-messages="vm.form.detailsViewHtmlPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewHtmlPageFilename.$touched'>
+                                                                <label for="detailsViewHtmlPageFilename">HTML view
+                                                                    filename</label>
+                                                                <input type="text" class="form-control" required
+                                                                    id="detailsViewHtmlPageFilename"
+                                                                    name="detailsViewHtmlPageFilename"
+                                                                    data-ng-model="vm.metadata.web.pages.detailsViewHtmlPageFilename">
+                                                                <div ng-messages="vm.form.detailsViewHtmlPageFilename.$error"
+                                                                    multiple
+                                                                    ng-if='vm.form.$submitted || vm.form.detailsViewHtmlPageFilename.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group col-md-3">
-                                                                <label for="detailsViewJSPageFilename">JS view filename</label>
-                                                                <input type="text" class="form-control" required id="detailsViewJSPageFilename" name="detailsViewJSPageFilename" data-ng-model="vm.metadata.pages.detailsViewJSPageFilename">
-                                                                <div ng-messages="vm.form.detailsViewJSPageFilename.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewJSPageFilename.$touched'>
+                                                                <label for="detailsViewJSPageFilename">JS view
+                                                                    filename</label>
+                                                                <input type="text" class="form-control" required
+                                                                    id="detailsViewJSPageFilename"
+                                                                    name="detailsViewJSPageFilename"
+                                                                    data-ng-model="vm.metadata.web.pages.detailsViewJSPageFilename">
+                                                                <div ng-messages="vm.form.detailsViewJSPageFilename.$error"
+                                                                    multiple
+                                                                    ng-if='vm.form.$submitted || vm.form.detailsViewJSPageFilename.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group col-md-3">
-                                                                <label for="detailsViewJSPageControllerName">Controller name</label>
-                                                                <input type="text" class="form-control" required id="detailsViewJSPageControllerName" name="detailsViewJSPageControllerName"
-                                                                    data-ng-model="vm.metadata.pages.detailsViewJSPageControllerName">
-                                                                <div ng-messages="vm.form.detailsViewJSPageControllerName.$error" multiple ng-if='vm.form.$submitted || vm.form.detailsViewJSPageControllerName.$touched'>
+                                                                <label for="detailsViewJSPageControllerName">Controller
+                                                                    name</label>
+                                                                <input type="text" class="form-control" required
+                                                                    id="detailsViewJSPageControllerName"
+                                                                    name="detailsViewJSPageControllerName"
+                                                                    data-ng-model="vm.metadata.web.pages.detailsViewJSPageControllerName">
+                                                                <div ng-messages="vm.form.detailsViewJSPageControllerName.$error"
+                                                                    multiple
+                                                                    ng-if='vm.form.$submitted || vm.form.detailsViewJSPageControllerName.$touched'>
                                                                     <div ng-message="required">Campo obrigatório</div>
                                                                 </div>
                                                             </div>
@@ -222,23 +389,29 @@
                         <section class="panel panel-default">
                             <div class="panel-body">
                                 <table class="table no-margin">
-                                    <tr data-ng-repeat="field in vm.metadata.fields | orderBy : 'fieldOrder' track by $index">
+                                    <tr
+                                        data-ng-repeat="field in vm.metadata.fields | orderBy : 'fieldOrder' track by $index">
                                         <td>
                                             <label for="fieldOrder{{$index}}">Order</label>
-                                            <input type="tel" class="form-control text-center" size="2" maxlength="4" id="fieldOrder{{$index}}" name="fieldOrder{{$index}}"
+                                            <input type="tel" class="form-control text-center" size="2" maxlength="4"
+                                                id="fieldOrder{{$index}}" name="fieldOrder{{$index}}"
                                                 data-ng-model="field.fieldOrder">
                                         </td>
                                         <td>
                                             <div class="row">
                                                 <div class="form-group col-sm-12">
                                                     <label for="fieldName{{$index}}">Name</label>
-                                                    <input type="text" class="form-control" required id="fieldName{{$index}}" name="fieldName{{$index}}" data-ng-model="field.fieldName">
+                                                    <input type="text" class="form-control" required
+                                                        id="fieldName{{$index}}" name="fieldName{{$index}}"
+                                                        data-ng-model="field.fieldName">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="form-group col-sm-12">
                                                     <label for="fieldLabel{{$index}}">Label</label>
-                                                    <input type="text" class="form-control" required id="fieldLabel{{$index}}" name="fieldLabel{{$index}}" data-ng-model="field.fieldLabel">
+                                                    <input type="text" class="form-control" required
+                                                        id="fieldLabel{{$index}}" name="fieldLabel{{$index}}"
+                                                        data-ng-model="field.fieldLabel">
                                                 </div>
                                             </div>
                                         </td>
@@ -246,7 +419,8 @@
                                             <div class="row">
                                                 <div class="form-group col-sm-12">
                                                     <label for="dataType{{$index}}">Data Type</label>
-                                                    <md-select class="form-control" required id="dataType{{$index}}" name="dataType{{$index}}" data-ng-model="field.dataType"
+                                                    <md-select class="form-control" required id="dataType{{$index}}"
+                                                        name="dataType{{$index}}" data-ng-model="field.dataType"
                                                         data-ng-change="vm.selectControl(field);" md-no-asterisk="true">
                                                         <md-option value="String">String</md-option>
                                                         <md-option value="Integer">Integer</md-option>
@@ -260,7 +434,8 @@
                                             <div class="row">
                                                 <div class="form-group col-sm-7">
                                                     <label for="controlType{{$index}}">Widget</label>
-                                                    <md-select class="form-control" required id="controlType{{$index}}" name="controlType{{$index}}" data-ng-model="field.controlType"
+                                                    <md-select class="form-control" required id="controlType{{$index}}"
+                                                        name="controlType{{$index}}" data-ng-model="field.controlType"
                                                         md-no-asterisk="true">
                                                         <md-option value="text">Input text</md-option>
                                                         <md-option value="tel">Input tel</md-option>
@@ -271,8 +446,9 @@
                                                 </div>
                                                 <div class="form-group col-sm-5">
                                                     <label for="maxlength{{$index}}">Maxlength</label>
-                                                    <input class="form-control" type="tel" id="maxlength" size="2" maxlength="3" id="maxlength{{$index}}" name="maxlength{{$index}}"
-                                                        data-ng-model="field.maxlength">
+                                                    <input class="form-control" type="tel" id="maxlength" size="2"
+                                                        maxlength="3" id="maxlength{{$index}}"
+                                                        name="maxlength{{$index}}" data-ng-model="field.maxlength">
                                                 </div>
                                             </div>
                                         </td>
@@ -280,28 +456,37 @@
                                             <div class="row">
                                                 <div class="form-group col-sm-6">
                                                     <label for="listOrder{{$index}}">Grid Order</label>
-                                                    <md-select class="form-control" id="listOrder{{$index}}" name="listOrder{{$index}}" data-ng-model="field.listOrder"
+                                                    <md-select class="form-control" id="listOrder{{$index}}"
+                                                        name="listOrder{{$index}}" data-ng-model="field.listOrder"
                                                         md-no-asterisk="true">
                                                         <md-option value="">Select:</md-option>
-                                                        <md-option data-ng-value="listOrder" data-ng-repeat="listOrder in vm.listOrders">{{ listOrder }}</md-option>
+                                                        <md-option data-ng-value="listOrder"
+                                                            data-ng-repeat="listOrder in vm.listOrders">{{ listOrder }}
+                                                        </md-option>
                                                     </md-select>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="form-group col-sm-6">
                                                     <label for="formRow{{$index}}">Form Row</label>
-                                                    <md-select class="form-control" id="formRow{{$index}}" name="formRow{{$index}}" data-ng-model="field.formRow"
+                                                    <md-select class="form-control" id="formRow{{$index}}"
+                                                        name="formRow{{$index}}" data-ng-model="field.formRow"
                                                         md-no-asterisk="true">
                                                         <md-option value="">Select:</md-option>
-                                                        <md-option data-ng-value="formRow" data-ng-repeat="formRow in vm.formRows">{{ formRow }}</md-option>
+                                                        <md-option data-ng-value="formRow"
+                                                            data-ng-repeat="formRow in vm.formRows">{{ formRow }}
+                                                        </md-option>
                                                     </md-select>
                                                 </div>
                                                 <div class="form-group col-sm-6">
                                                     <label for="formColSize{{$index}}">Col Size</label>
-                                                    <md-select class="form-control" id="formColSize{{$index}}" name="formColSize{{$index}}" data-ng-model="field.formColSize"
+                                                    <md-select class="form-control" id="formColSize{{$index}}"
+                                                        name="formColSize{{$index}}" data-ng-model="field.formColSize"
                                                         md-no-asterisk="true">
                                                         <md-option value="">Select:</md-option>
-                                                        <md-option data-ng-value="colSize" data-ng-repeat="colSize in vm.colSizes">{{ colSize }}</md-option>
+                                                        <md-option data-ng-value="colSize"
+                                                            data-ng-repeat="colSize in vm.colSizes">{{ colSize }}
+                                                        </md-option>
                                                     </md-select>
                                                 </div>
                                             </div>
@@ -309,29 +494,36 @@
                                         <td>
                                             <div class="row">
                                                 <div class="form-group col-sm-4">
-                                                    <md-checkbox class="md-primary" data-ng-model="field.pk" data-ng-checked="vm.pkSelected(field)">PK</md-checkbox>
+                                                    <md-checkbox class="md-primary" data-ng-model="field.pk"
+                                                        data-ng-checked="vm.pkSelected(field)">PK</md-checkbox>
                                                 </div>
                                                 <div class="form-group col-sm-4">
-                                                    <md-checkbox class="md-primary" data-ng-model="field.listView" ng-checked="true">List view</md-checkbox>
+                                                    <md-checkbox class="md-primary" data-ng-model="field.listView"
+                                                        ng-checked="true">List view</md-checkbox>
                                                 </div>
                                                 <div class="form-group col-sm-4">
-                                                    <md-checkbox class="md-primary" data-ng-model="field.searchField">Search field</md-checkbox>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group col-sm-4">
-                                                    <md-checkbox class="md-primary" data-ng-model="field.unique">Unique</md-checkbox>
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                    <md-checkbox class="md-primary" data-ng-model="field.detailsView" ng-checked="true">Details view</md-checkbox>
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                    <md-checkbox class="md-primary" data-ng-model="field.updateField" ng-checked="true">Update field</md-checkbox>
+                                                    <md-checkbox class="md-primary" data-ng-model="field.searchField">
+                                                        Search field</md-checkbox>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="form-group col-sm-4">
-                                                    <md-checkbox class="md-primary" data-ng-model="field.required" ng-checked="true">Required</md-checkbox>
+                                                    <md-checkbox class="md-primary" data-ng-model="field.unique">Unique
+                                                    </md-checkbox>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <md-checkbox class="md-primary" data-ng-model="field.detailsView"
+                                                        ng-checked="true">Details view</md-checkbox>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <md-checkbox class="md-primary" data-ng-model="field.updateField"
+                                                        ng-checked="true">Update field</md-checkbox>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-sm-4">
+                                                    <md-checkbox class="md-primary" data-ng-model="field.required"
+                                                        ng-checked="true">Required</md-checkbox>
                                                 </div>
                                             </div>
                                         </td>
@@ -348,7 +540,8 @@
                         </section>
                         <div class="row">
                             <div class="col-md-6">
-                                <md-button type="submit" class="md-raised md-primary" data-ng-click="vm.generateMetadata()">
+                                <md-button type="submit" class="md-raised md-primary"
+                                    data-ng-click="vm.generateMetadata()">
                                     <span class="fa fa-magic"></span> Generate metadata
                                 </md-button>
                             </div>

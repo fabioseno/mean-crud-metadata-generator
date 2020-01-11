@@ -7,6 +7,20 @@
 
             capitalize = function (string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
+            },
+
+            pluralize = function (term) {
+                var lastChar = term.substring(term.length - 1);
+
+                if (lastChar !== 's') {
+                    if (lastChar === 'y') {
+                        term = term.substring(0, term.length - 1) + 'ies';
+                    } else {
+                        term += 's';
+                    }
+                }
+
+                return term;
             };
 
         vm.colSizes = [];
@@ -14,10 +28,18 @@
         vm.formRows = [];
 
         vm.metadata = {
-            model: {},
-            controller: {},
-            route: {},
-            pages: {},
+            server: {
+                datasource: 'mysql',
+                namingConvention: 'underscore',
+                model: {},
+                domain: {},
+                controller: {},
+                middleware: {},
+                route: {},
+            },
+            web: {
+                pages: {}
+            },
             fields: [{
                 fieldOrder: 1,
                 dataType: 'String',
@@ -43,6 +65,10 @@
                 dataType: 'String',
                 controlType: 'text'
             });
+        };
+
+        vm.showMongoDBFields = function () {
+            return (vm.metadata.server.datasource === 'mongodb');
         };
 
         vm.selectControl = function (field) {
@@ -76,45 +102,58 @@
             if (!value) {
                 vm.metadata.entityTitle = '';
                 vm.metadata.entityPluralName = '';
-                vm.metadata.model = {};
-                vm.metadata.controller = {};
-                vm.metadata.route = {};
-                vm.metadata.pages = {};
+
+                vm.metadata.server.model = {};
+                vm.metadata.server.domain = {};
+                vm.metadata.server.controller = {};
+                vm.metadata.server.middleware = {};
+                vm.metadata.server.route = {};
+                vm.metadata.web.pages = {};
             } else {
-                vm.metadata.entityTitle = value;
-                vm.metadata.entityPluralName = value + 's';
+                vm.metadata.entityTitle = capitalize(value);
+                vm.metadata.entityPluralName = pluralize(value);
 
                 // model
-                vm.metadata.model.pluralName = capitalize(value) + 's';
-                vm.metadata.model.name = capitalize(value);
-                vm.metadata.model.schemaName = value + 'Schema';
-                vm.metadata.model.filename = value + '.js';
+                vm.metadata.server.model.pluralName = pluralize(capitalize(value));
+                vm.metadata.server.model.name = capitalize(value);
+                vm.metadata.server.model.schemaName = value + 'Schema';
+                vm.metadata.server.model.filename = value + '.model.js';
+
+                // domain
+                vm.metadata.server.domain.name = value + 'Domain';
+                vm.metadata.server.domain.filename = value + '.domain.js';
 
                 // controller
-                vm.metadata.controller.name = value + 'Controller';
-                vm.metadata.controller.filename = value+ 's.js';
+                vm.metadata.server.controller.name = value + 'Controller';
+                vm.metadata.server.controller.filename = value + '.controller.js';
 
-                // router
-                vm.metadata.route.filename = value+ 's.js';
+                // middleware
+                vm.metadata.server.middleware.name = value + 'Middleware';
+                vm.metadata.server.middleware.filename = value + '.middleware.js';
+
+                // route
+                vm.metadata.server.route.filename = value + '.route.js';
 
                 // pages
-                vm.metadata.pages.listViewPageTitle = capitalize(value) + 's';
-                vm.metadata.pages.listViewHtmlPageFilename = value + 's.html';
-                vm.metadata.pages.listViewJSPageFilename = value + 's.js';
-                vm.metadata.pages.listViewJSPageControllerName = value + 's';
+                vm.metadata.web.pages.listViewHtmlPageFilename = pluralize(value) + '.html';
+                vm.metadata.web.pages.listViewJSPageFilename = pluralize(value) + '.js';
+                vm.metadata.web.pages.listViewJSPageControllerName = pluralize(value);
 
-                vm.metadata.pages.detailsViewPageTitle = capitalize(value);
-                vm.metadata.pages.detailsViewHtmlPageFilename = value + '.html';
-                vm.metadata.pages.detailsViewJSPageFilename = value + 's.js';
-                vm.metadata.pages.detailsViewJSPageControllerName = value;
+                vm.metadata.web.pages.detailsViewHtmlPageFilename = value + '.html';
+                vm.metadata.web.pages.detailsViewJSPageFilename = value + '.js';
+                vm.metadata.web.pages.detailsViewJSPageControllerName = value;
             }
-        })
+        });
 
         $scope.$watch('vm.metadata.entityTitle', function (value) {
             if (value) {
-                vm.metadata.entityPluralTitle = value + 's';
+                vm.metadata.entityPluralTitle = pluralize(value);
+                vm.metadata.web.pages.listViewPageTitle = pluralize(value);
+                vm.metadata.web.pages.detailsViewPageTitle = value;
             } else {
                 vm.metadata.entityPluralTitle = '';
+                vm.metadata.web.pages.listViewPageTitle = '';
+                vm.metadata.web.pages.detailsViewPageTitle = '';
             }
         });
 
