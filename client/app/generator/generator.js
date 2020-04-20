@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    function Generator($scope) {
+    function Generator($scope, $timeout) {
         var vm = this,
 
             capitalize = function (string) {
@@ -24,7 +24,7 @@
             };
 
         vm.colSizes = [];
-        vm.listOrders = [];
+        // vm.listOrders = [];
         vm.formRows = [];
 
         vm.metadata = {
@@ -51,9 +51,9 @@
             vm.colSizes.push(i + 1);
         }
 
-        for (var i = 0; i < 10; i++) {
-            vm.listOrders.push(i + 1);
-        }
+        // for (var i = 0; i < 10; i++) {
+        //     vm.listOrders.push(i + 1);
+        // }
 
         for (var i = 0; i < 10; i++) {
             vm.formRows.push(i + 1);
@@ -71,23 +71,45 @@
             return (vm.metadata.server.datasource === 'mongodb');
         };
 
+        vm.loadFile = function () {
+            var file = document.getElementById('file').files[0];
+
+            if (file) {
+                var aReader = new FileReader();
+                aReader.readAsText(file, 'UTF-8');
+                aReader.onload = function (evt) {
+                    $timeout(function () {
+                        vm.metadata = JSON.parse(aReader.result);
+                    });
+                };
+                aReader.onerror = function (evt) {
+                    // document.getElementById("myFileInput").innerHTML = "error";
+                    // $scope.fileContent = "error";
+                };
+            }
+        };
+
+        $scope.fileChanged = function () {
+            var a = vm.metadataFile;
+        };
+
         vm.selectControl = function (field) {
             switch (field.dataType) {
-                case 'String':
-                    field.controlType = 'text';
-                    break;
-                case 'Boolean':
-                    field.controlType = 'checkbox';
-                    break;
-                case 'Integer':
-                    field.controlType = 'tel';
-                    break;
-                case 'Decimal':
-                    field.controlType = 'tel';
-                    break;
-                case 'Date':
-                    field.controlType = 'calendar';
-                    break;
+            case 'String':
+                field.controlType = 'text';
+                break;
+            case 'Boolean':
+                field.controlType = 'checkbox';
+                break;
+            case 'Integer':
+                field.controlType = 'tel';
+                break;
+            case 'Decimal':
+                field.controlType = 'currency';
+                break;
+            case 'Date':
+                field.controlType = 'calendar';
+                break;
             }
         };
 
@@ -135,13 +157,15 @@
                 vm.metadata.server.route.filename = value + '.route.js';
 
                 // pages
-                vm.metadata.web.pages.listViewHtmlPageFilename = pluralize(value) + '.html';
-                vm.metadata.web.pages.listViewJSPageFilename = pluralize(value) + '.js';
-                vm.metadata.web.pages.listViewJSPageControllerName = pluralize(value);
+                vm.metadata.web.pages.listViewHtmlPageFilename = pluralize(value) + '.component.html';
+                vm.metadata.web.pages.listViewCodePageFilename = pluralize(value) + '.component.ts';
+                vm.metadata.web.pages.listViewCodePageControllerName = pluralize(value);
+                vm.metadata.web.pages.listViewStylePageFilename = pluralize(value) + '.component.scss';
 
-                vm.metadata.web.pages.detailsViewHtmlPageFilename = value + '.html';
-                vm.metadata.web.pages.detailsViewJSPageFilename = value + '.js';
-                vm.metadata.web.pages.detailsViewJSPageControllerName = value;
+                vm.metadata.web.pages.detailsViewHtmlPageFilename = value + '.component.html';
+                vm.metadata.web.pages.detailsViewCodePageFilename = value + '.component.ts';
+                vm.metadata.web.pages.detailsViewCodePageControllerName = value;
+                vm.metadata.web.pages.detailsViewStylePageFilename = value + '.component.scss';
             }
         });
 
@@ -175,7 +199,7 @@
         };
     }
 
-    Generator.$inject = ['$scope'];
+    Generator.$inject = ['$scope', '$timeout'];
 
     angular.module('app').controller('generator', Generator);
 })();
