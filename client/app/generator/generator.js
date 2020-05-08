@@ -89,6 +89,10 @@
             }
         };
 
+        vm.connectDB = function () {
+            
+        };
+
         $scope.fileChanged = function () {
             var a = vm.metadataFile;
         };

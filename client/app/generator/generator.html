@@ -18,7 +18,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="section-header">
-                                    <h4>Opções</h4>
+                                    <h4>Data source</h4>
                                 </div>
                                 <section class="panel panel-default">
                                     <div class="panel-body">
@@ -56,6 +56,18 @@
                                                 <input type="file" accept="*.json" id="file" name='file'>
                                                 <md-button class="md-raised md-primary" data-ng-click="vm.loadFile()">
                                                     Carregar
+                                                </md-button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="entityName">String de conexão</label>
+                                                <input type="text" class="form-control" id="connectionString"
+                                                    name="connectionString" data-ng-model="vm.connectionString">
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <md-button class="md-raised md-primary" data-ng-click="vm.connectDB()">
+                                                    Conectar
                                                 </md-button>
                                             </div>
                                         </div>
@@ -517,6 +529,10 @@
                                                 <div class="form-group col-sm-4">
                                                     <md-checkbox class="md-primary" data-ng-model="field.searchField">
                                                         Search field</md-checkbox>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <md-checkbox class="md-primary" data-ng-model="field.sortField">
+                                                        Sort field</md-checkbox>
                                                 </div>
                                             </div>
                                             <div class="row">
